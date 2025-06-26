@@ -1,7 +1,8 @@
-Descrição:
+Lojinha com Ranking de Clientes (ABC)
+Descrição
 Este é um sistema de desktop simples para gerenciar uma pequena loja. Ele permite o cadastro de clientes e produtos, o registro de compras e a geração de um ranking de clientes baseado na curva ABC. Os dados são persistidos localmente em arquivos JSON.
 
-Funcionalidades:
+Funcionalidades
 Login: Tela de login simples para acesso ao sistema (usuário: admin, senha: 1234).
 
 Gestão de Clientes: Adicionar, editar e excluir clientes.
