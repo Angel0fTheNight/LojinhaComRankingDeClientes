@@ -9,6 +9,8 @@ import java.util.*;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
+import javax.swing.*;
+
 public class DataController {
     private static final String CLIENTES_FILE = "data/clientes.json";
     private static final String PRODUTOS_FILE = "data/produtos.json";
@@ -111,5 +113,41 @@ public class DataController {
         }
         salvar(COMPRAS_FILE, compras);
         salvar(CLIENTES_FILE, clientes);
+    }
+    // Gera um relatório simples em TXT com os dados atuais.
+    public void exportarParaTXT(String caminhoDoArquivo) {
+        // StringBuilder é mais eficiente para montar strings grandes que ficar concatenando com '+'.
+        StringBuilder sb = new StringBuilder();
+        sb.append("===== Clientes =====\n");
+
+        // Checa se a lista está vazia para não imprimir um cabeçalho sem dados.
+        if (clientes.isEmpty()) {
+            sb.append("Nenhum cliente cadastrado.\n");
+        } else {
+            for (Cliente c : clientes) {
+                sb.append("Nome: ").append(c.getNome()).append(", ");
+                sb.append("Email: ").append(c.getEmail()).append(", ");
+                sb.append(String.format("Total Gasto: R$ %.2f\n", c.getTotalGasto()));
+            }
+        }
+
+        sb.append("\n===== Produtos =====\n");
+        if (produtos.isEmpty()) {
+            sb.append("Nenhum produto cadastrado.\n");
+        } else {
+            for (Produto p : produtos) {
+                sb.append("Nome: ").append(p.getNome()).append(", ");
+                sb.append(String.format("Preço: R$ %.2f\n", p.getPreco()));
+            }
+        }
+
+        // O bloco try-with-resources garante que o 'writer' feche sozinho, evitando vazamento de recursos.
+        try (Writer writer = new FileWriter(caminhoDoArquivo)) {
+            writer.write(sb.toString());
+        } catch (IOException e) {
+            // Se algo der errado na escrita do arquivo, é bom logar e avisar o usuário.
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao exportar o arquivo.", "Erro de Exportação", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

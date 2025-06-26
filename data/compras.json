@@ -1,0 +1,12 @@
+[
+  {
+    "clienteEmail": "teste@gmail.com",
+    "produtoNome": "Tomate",
+    "quantidade": 2
+  },
+  {
+    "clienteEmail": "testado@gmail.com",
+    "produtoNome": "Tomate",
+    "quantidade": 4
+  }
+]

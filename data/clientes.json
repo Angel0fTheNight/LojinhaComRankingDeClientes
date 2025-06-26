@@ -1,0 +1,12 @@
+[
+  {
+    "nome": "Cauan",
+    "email": "teste@gmail.com",
+    "totalGasto": 10.0
+  },
+  {
+    "nome": "Julia",
+    "email": "testado@gmail.com",
+    "totalGasto": 20.0
+  }
+]
