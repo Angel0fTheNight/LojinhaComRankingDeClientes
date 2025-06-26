@@ -24,6 +24,9 @@ public class DataController {
     }
 
     private void carregarDados() {
+        // Garante que o diretório 'data' exista
+        new File("data").mkdirs();
+
         clientes = carregar(CLIENTES_FILE, new TypeToken<List<Cliente>>(){}.getType());
         produtos = carregar(PRODUTOS_FILE, new TypeToken<List<Produto>>(){}.getType());
         compras = carregar(COMPRAS_FILE, new TypeToken<List<Compra>>(){}.getType());
@@ -31,8 +34,12 @@ public class DataController {
 
     private <T> List<T> carregar(String caminho, java.lang.reflect.Type type) {
         try (Reader reader = new FileReader(caminho)) {
-            return gson.fromJson(reader, type);
+            List<T> dados = gson.fromJson(reader, type);
+            return dados == null ? new ArrayList<>() : dados;
+        } catch (FileNotFoundException e) {
+            return new ArrayList<>(); // Se o arquivo não existe, retorna lista vazia
         } catch (IOException e) {
+            e.printStackTrace();
             return new ArrayList<>();
         }
     }
@@ -54,8 +61,40 @@ public class DataController {
         salvar(CLIENTES_FILE, clientes);
     }
 
+    public void atualizarCliente(Cliente clienteOriginal, String novoNome, String novoEmail) {
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getEmail().equals(clienteOriginal.getEmail())) {
+                Cliente clienteAtualizado = new Cliente(novoNome, novoEmail);
+                clienteAtualizado.adicionarGasto(clienteOriginal.getTotalGasto()); // Mantém o total gasto
+                clientes.set(i, clienteAtualizado);
+                break;
+            }
+        }
+        salvar(CLIENTES_FILE, clientes);
+    }
+
+    public void excluirCliente(Cliente c) {
+        clientes.removeIf(cliente -> cliente.getEmail().equals(c.getEmail()));
+        salvar(CLIENTES_FILE, clientes);
+    }
+
     public void adicionarProduto(Produto p) {
         produtos.add(p);
+        salvar(PRODUTOS_FILE, produtos);
+    }
+
+    public void atualizarProduto(Produto produtoOriginal, String novoNome, double novoPreco) {
+        for (int i = 0; i < produtos.size(); i++) {
+            if (produtos.get(i).getNome().equals(produtoOriginal.getNome())) {
+                produtos.set(i, new Produto(novoNome, novoPreco));
+                break;
+            }
+        }
+        salvar(PRODUTOS_FILE, produtos);
+    }
+
+    public void excluirProduto(Produto p) {
+        produtos.removeIf(produto -> produto.getNome().equals(p.getNome()));
         salvar(PRODUTOS_FILE, produtos);
     }
 
