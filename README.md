@@ -26,56 +26,50 @@ Este é um sistema de desktop simples para gerenciar uma pequena loja. Ele permi
 
 * Java Development Kit (JDK) 8 ou superior instalado.
 * Apache Maven instalado.
+* Git instalado.
 
 ### Passos
 
 1.  **Clone o repositório:**
+    *Abra um terminal ou Prompt de Comando e use o comando `git clone`.*
     ```bash
-    git clone [https://github.com/seu-usuario/lojinhacomrankingdeclientes.git](https://github.com/seu-usuario/lojinhacomrankingdeclientes.git)
+    git clone [https://github.com/Angel0fTheNight/LojinhaComRankingDeClientes.git](https://github.com/Angel0fTheNight/LojinhaComRankingDeClientes.git)
     ```
-2.  **Navegue até o diretório do projeto:**
+2.  **Navegue até o diretório do projeto Maven:**
+    *O projeto Maven está dentro de algumas subpastas. Use este comando para chegar ao local correto.*
     ```bash
-    cd lojinhacomrankingdeclientes
+    cd LojinhaComRankingDeClientes/mnt/data/LojinhaRankingMaven
     ```
 3.  **Compile e empacote o projeto com o Maven:**
+    *Este comando irá gerar um arquivo `.jar` executável com todas as dependências incluídas.*
     ```bash
-    mvn clean install
+    mvn clean package
     ```
 4.  **Execute o arquivo JAR gerado:**
+    *O nome do arquivo `.jar` a ser executado termina com `jar-with-dependencies`.*
     ```bash
-    java -jar target/lojinha-ranking-1.0-SNAPSHOT.jar
+    java -jar target/lojinha-ranking-1.0-SNAPSHOT-jar-with-dependencies.jar
     ```
-    *Obs: O nome do arquivo `.jar` pode variar. Verifique o nome gerado na pasta `target/`.*
 
 ## Estrutura do Projeto
 
-O projeto segue a estrutura padrão do Maven:
-
-.
-├── data/                  # Contém os arquivos de dados em JSON
+A estrutura de arquivos do projeto é a seguinte:
+LojinhaComRankingDeClientes/
+└── mnt/
+└── data/
+└── LojinhaRankingMaven/
+├── data/
 │   ├── clientes.json
 │   ├── compras.json
 │   └── produtos.json
-├── pom.xml                # Arquivo de configuração do Maven
-└── src
-└── main
-└── java
-└── app
-├── controller     # Lógica de negócio e manipulação dos dados
-│   └── DataController.java
-├── Main.java      # Ponto de entrada da aplicação
-├── model          # Classes de domínio (Cliente, Produto, Compra)
-│   ├── Cliente.java
-│   ├── Compra.java
-│   └── Produto.java
-└── view           # Classes da interface gráfica (Janelas e componentes)
-├── ClienteView.java
-├── CompraView.java
-├── LoginView.java
-├── MainView.java
-├── ProdutoView.java
-└── RankingView.java
-
+├── pom.xml
+└── src/
+└── main/
+└── java/
+└── app/
+├── controller/
+├── model/
+└── view/
 ## Como Contribuir
 
 1.  Faça um *fork* deste repositório.
