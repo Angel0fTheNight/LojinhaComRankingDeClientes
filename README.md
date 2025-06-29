@@ -20,7 +20,7 @@ Este é um sistema de desktop simples para gerenciar uma pequena loja. Ele permi
 * **Maven:** Para gerenciamento de dependências e do build do projeto.
 * **Gson:** Biblioteca do Google para manipulação de JSON, usada para salvar e carregar os dados.
 
-## Como Executar o Projeto
+## Como Executar o Projeto (Para Desenvolvedores)
 
 ### Pré-requisitos
 
@@ -50,6 +50,27 @@ Este é um sistema de desktop simples para gerenciar uma pequena loja. Ele permi
     ```bash
     java -jar target/lojinha-ranking-1.0-SNAPSHOT-jar-with-dependencies.jar
     ```
+
+## Como Usar o Executável (Arquivo .jar)
+
+Esta seção é para quem quer apenas usar o programa, sem precisar compilar o código.
+
+### Pré-requisitos
+
+* Apenas o Java (versão 8 ou superior) instalado no computador.
+
+### Passos
+
+1.  **Obtenha o arquivo `.jar`:**
+    * Após o processo de compilação, localize o arquivo `lojinha-ranking-1.0-SNAPSHOT-jar-with-dependencies.jar` dentro da pasta `target`.
+
+2.  **Prepare a Pasta de Execução:**
+    * Copie o arquivo `.jar` para qualquer pasta de sua preferência (ex: Área de Trabalho).
+    * Na mesma pasta onde você colou o `.jar`, crie uma nova pasta chamada **`data`**. O programa usará esta pasta para salvar os dados dos clientes e produtos.
+
+3.  **Execute o Programa:**
+    * Dê um **duplo-clique** no arquivo `lojinha-ranking-1.0-SNAPSHOT-jar-with-dependencies.jar` para iniciar a aplicação.
+    * (Alternativa) Se o duplo-clique não funcionar, abra um Prompt de Comando nessa pasta e execute: `java -jar lojinha-ranking-1.0-SNAPSHOT-jar-with-dependencies.jar`.
 
 ## Estrutura do Projeto
 
