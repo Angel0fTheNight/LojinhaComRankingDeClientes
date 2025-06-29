@@ -91,10 +91,24 @@ LojinhaComRankingDeClientes/
 ├── controller/
 ├── model/
 └── view/
-## Como Contribuir
+## 📥 Como baixar e executar o Lojinha.exe
 
-1.  Faça um *fork* deste repositório.
-2.  Crie uma nova *branch* (`git checkout -b feature/sua-feature`).
-3.  Faça o *commit* de suas alterações (`git commit -m 'Adiciona nova feature'`).
-4.  Faça o *push* para a *branch* (`git push origin feature/sua-feature`).
-5.  Abra um *Pull Request*.
+1. Acesse a página principal do repositório:  
+   [https://github.com/Angel0fTheNight/LojinhaComRankingDeClientes](https://github.com/Angel0fTheNight/LojinhaComRankingDeClientes)
+
+2. Clique na aba **Tags** ou **Releases** (ela fica no topo do repositório, ao lado de *Code* e *Issues*).
+
+3. Na lista de versões/tags, selecione a versão mais recente (por exemplo: `v1.0`).
+
+4. Dentro da página da tag ou release, role para baixo até a seção **Assets**.
+
+5. Você verá um link para baixar o arquivo `Lojinha.exe` (ou um arquivo compactado contendo o executável). Clique para fazer o download.
+
+6. Extraia (se necessário) e execute o arquivo `Lojinha.exe` diretamente no seu computador (Windows).  
+   > ⚠️ **Atenção:** Execute apenas em um ambiente confiável, já que é um executável.
+
+7. O programa vai abrir com a interface da lojinha, permitindo:
+   - Cadastrar produtos e clientes
+   - Registrar compras
+   - Ver o ranking dos melhores clientes
+
